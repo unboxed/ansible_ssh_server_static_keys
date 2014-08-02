@@ -1,0 +1,36 @@
+---
+# Configure system keys
+#
+# Note that private keys need to be stored as variables, otherwise the 'vault'
+# encryption becomes needlessly complicated:
+# http://stackoverflow.com/questions/22773294/how-to-upload-encrypted-file-using-ansible-vault
+#
+# RSA Keys
+- name: Configure ssh ssh_host_rsa_key host key
+  copy: "dest=/etc/ssh/ssh_host_rsa_key content='{{ ssh_host_rsa_key }}' owner=root group=root mode=0600"
+  notify:
+    - restart ssh
+- name: Configure ssh ssh_host_rsa_key.pub host key
+  copy: "dest=/etc/ssh/ssh_host_rsa_key.pub content='{{ ssh_host_rsa_key_pub }}' owner=root group=root mode=0644"
+  notify:
+    - restart ssh
+
+# DSA Keys
+- name: Configure ssh ssh_host_dsa_key host key
+  copy: "dest=/etc/ssh/ssh_host_dsa_key content='{{ ssh_host_dsa_key }}' owner=root group=root mode=0600"
+  notify:
+    - restart ssh
+- name: Configure ssh ssh_host_dsa_key.pub host key
+  copy: "dest=/etc/ssh/ssh_host_dsa_key.pub content='{{ ssh_host_dsa_key_pub }}' owner=root group=root mode=0644"
+  notify:
+    - restart ssh
+
+# ECDSA Keys
+- name: Configure ssh ssh_host_ecdsa_key host key
+  copy: "dest=/etc/ssh/ssh_host_ecdsa_key content='{{ ssh_host_ecdsa_key }}' owner=root group=root mode=0600"
+  notify:
+    - restart ssh
+- name: Configure ssh ssh_host_ecdsa_key.pub host key
+  copy: "dest=/etc/ssh/ssh_host_ecdsa_key.pub content='{{ ssh_host_ecdsa_key_pub }}' owner=root group=root mode=0644"
+  notify:
+    - restart ssh

@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Oskar Pearson
+  description:
+  company: Unboxed Consulting
+  license: GPLv2
+  min_ansible_version: 1.6.3
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+  categories:
+    - system
+  dependencies: []
