@@ -6,6 +6,8 @@
 # http://stackoverflow.com/questions/22773294/how-to-upload-encrypted-file-using-ansible-vault
 #
 # RSA Keys
+
+- fail: msg="You should not use this role, pending resolution of a bug in Ansible"
 - name: Configure ssh ssh_host_rsa_key host key
   copy: "dest=/etc/ssh/ssh_host_rsa_key content='{{ ssh_host_rsa_key }}' owner=root group=root mode=0600"
   notify:
