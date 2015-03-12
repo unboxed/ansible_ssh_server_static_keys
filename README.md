@@ -32,7 +32,7 @@ In site.yml (for example)
 Role Variables
 --------------
 
-Since the private keys are confidential information, we store want to store
+Since the private keys are confidential information, we want to store
 them in encrypted form.
 
 Unfortunately Ansible doesn't yet support encrypted files - only encrypted
